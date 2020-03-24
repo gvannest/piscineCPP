@@ -18,61 +18,93 @@ t_botin botin[11] = {
 
 void    print_string_fields(std::string str, size_t width){
     if (str.length() > width)
-        std::cout << std::setw(width) << str.substr(0, width - 1) << ".|";  
+        std::cout << std::setw(width) << str.substr(0, width - 1) + '.' << '|';  
     else
         std::cout << std::setw(width) << str << '|';  
+}
+
+void    ft_add(){
+    int             len;
+    int             choice;
+    static int      idx = 1;
+    std::string     data[11];
+    len = Contact::contact_list_size();
+    if (len == 8){
+        std::cout << "There is no space left in the botin." << std::endl;
+        std::cout << "Please type an index to be replaced or '0' to cancel : ";
+        while (!(std::cin >> choice) || choice < 0 || choice > len){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Wrong answer please provide a valid number" << std::endl;
+            std::cout << "Please type an index to be replaced or '0' to cancel : ";
+        }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (!choice)
+            return;
+        idx = choice;
+    }
+    for (int i = 0; i < 11; i++){
+        std::cout << "Please enter " << botin[i].str << " : ";
+        std::getline(std::cin, data[i]);
+    }
+    Contact *new_contact = new Contact(idx, data);
+    Contact::insert_contact(idx, new_contact);
+    idx++;
+}
+
+void    ft_search(){
+    int             len;
+    std::string     fields[3] = {"first name", "last name", "login"};
+
+    std::cout << std::setw(10) << "Index" << '|';
+    for (int i= 0; i < 3; i++){
+        print_string_fields(fields[i], 10);
+    }
+    std::cout << std::endl;
+
+    len = Contact::contact_list_size();
+    for (int x = 0; x < len; x++){
+        Contact *current_contact = Contact::get_contact(x + 1);
+        std::cout << std::setw(10) << current_contact->get_index() << '|';
+        for (int y = 0; y < 3; y++){
+            for (int z = 0; z < 11; z++){
+                if (!fields[y].compare(botin[z].str)){
+                    print_string_fields((current_contact->*(botin[z].f))(), 10);
+                    break;
+                }
+            }
+        }
+        std::cout << std::endl;
+    }
+    int      choice; 
+    std::cout << "Please choose a contact index : "; 
+    while (!(std::cin >> choice) || choice < 1 || choice > len){
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Wrong answer please provide a valid number" << std::endl;
+        std::cout << "Please choose a contact index : "; 
+    }
+    Contact *current_contact = Contact::get_contact(choice);
+    for (int i = 0; i < 11; i++){
+        std::cout << botin[i].str << " : ";
+        std::cout << (current_contact->*(botin[i].f))() << std::endl;
+    }
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 int     main(void){
 
     std::string     input;
-    int             len;
-    int             idx = 1;
-    std::string     fields[3] = {"first name", "last name", "login"};
 
     while (1){
         std::cout << "Please enter a command : "; 
         std::getline(std::cin, input);;
         if (!input.compare("EXIT"))
             return 0;
-        else if (!input.compare("ADD")){
-            std::string     data[11];
-            for (int i = 0; i < 11; i++){
-                std::cout << "Please enter " << botin[i].str << " : ";
-                std::getline(std::cin, data[i]); //Note: data[i] ici contient une string = c'est un pointeur vers string
-            }
-            Contact new_contact(idx, data);
-            std::cout << &new_contact << std::endl;
-            Contact::insert_contact(idx, &new_contact);
-            if (idx == 2){
-                Contact *contact_1 = Contact::get_contact(1);
-                Contact *contact_2 = Contact::get_contact(2);
-                std::cout << contact_1 << std::endl;
-                std::cout << contact_1->get_index() << std::endl;
-                std::cout << contact_2 << std::endl;
-                std::cout << contact_2->get_index() << std::endl;
-            }
-            // ATTENTION GERER DANS LA FONCTION MEMBRE LE COMPORTEMENT SI > 8 contacts!!
-            // NOTAMMENT QUEL COMPORTEMENT EN FONCTION DE L'INDEX??
-            idx++;
-        }        
-        else if (!input.compare("SEARCH")){
-            // printer des titres de colonnes
-            len = Contact::contact_list_size();
-            for (int x = 0; x < len; x++){
-                Contact *current_contact = Contact::get_contact(x + 1);
-                std::cout << std::setw(10) << current_contact->get_index() << '|';
-                for (int y = 0; y < 3; y++){
-                    for (int z = 0; z < 11; z++){
-                        if (!fields[y].compare(botin[z].str)){
-                            print_string_fields((current_contact->*(botin[z].f))(), 10);
-                            break;
-                        }
-                    }
-                }
-                std::cout << std::endl;
-            }
-        }
+        else if (!input.compare("ADD"))
+            ft_add();
+        else if (!input.compare("SEARCH"))
+            ft_search();
     }
     return 0;
 }

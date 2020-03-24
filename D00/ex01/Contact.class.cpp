@@ -3,7 +3,6 @@
 Contact::Contact(int idx, std::string p[11]) : _index(idx) {
     for (int i = 0; i < 11; i++){
         this->_params[i] = p[i];
-        std::cout << this->_params[i] << std::endl;
     }
     return;
 }
