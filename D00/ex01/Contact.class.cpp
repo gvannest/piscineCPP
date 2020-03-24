@@ -29,7 +29,7 @@ Contact     *Contact::get_contact(int idx){
 
 int         Contact::contact_list_size(void){
     int i = 0;
-    while (Contact::_contact_list[i])
+    while (i < 8 && Contact::_contact_list[i]->_params[0].compare(""))
         i++;
     return i;
 }
@@ -124,6 +124,12 @@ std::string Contact::get_darkest_secret(void) const{
 
 void        Contact::set_darkest_secret(std::string darkest_secret){
     this->_params[10] = darkest_secret;
+}
+
+void        Contact::ft_copy_data(std::string data[11]){
+    for (int i = 0; i < 11; i++){
+        this->_params[i] = data[i];
+    }
 }
 
 Contact *Contact::_contact_list[9] = {0};

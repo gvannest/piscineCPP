@@ -23,6 +23,8 @@ void    print_string_fields(std::string str, size_t width){
         std::cout << std::setw(width) << str << '|';  
 }
 
+
+
 void    ft_add(){
     int             len;
     int             choice;
@@ -47,8 +49,8 @@ void    ft_add(){
         std::cout << "Please enter " << botin[i].str << " : ";
         std::getline(std::cin, data[i]);
     }
-    Contact *new_contact = new Contact(idx, data);
-    Contact::insert_contact(idx, new_contact);
+    Contact *current_contact = Contact::get_contact(idx);
+    current_contact->ft_copy_data(data);
     idx++;
 }
 
@@ -95,6 +97,25 @@ void    ft_search(){
 int     main(void){
 
     std::string     input;
+    std::string    data_init[11] = {"", "", "", "", "", "", "", "", "", "", ""};
+
+    Contact contact1(1, data_init);
+    Contact contact2(2, data_init);
+    Contact contact3(3, data_init);
+    Contact contact4(4, data_init);
+    Contact contact5(5, data_init);
+    Contact contact6(6, data_init);
+    Contact contact7(7, data_init);
+    Contact contact8(8, data_init);
+
+    Contact::insert_contact(1, &contact1);
+    Contact::insert_contact(2, &contact2);
+    Contact::insert_contact(3, &contact3);
+    Contact::insert_contact(4, &contact4);
+    Contact::insert_contact(5, &contact5);
+    Contact::insert_contact(6, &contact6);
+    Contact::insert_contact(7, &contact7);
+    Contact::insert_contact(8, &contact8);
 
     while (1){
         std::cout << "Please enter a command : "; 
