@@ -3,7 +3,7 @@ NAME 		= botin
 
 #compiler and flags
 CXX			= clang++
-CXXFLAGS	= -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS	= -std=c++98 -Wall -Wextra -Werror -g
 CPPFLAGS		= -I$(INC_PATH) # -I is a preprocessor flag, not a compiler flag
 
 # PATHS
@@ -12,14 +12,14 @@ OBJ_PATH = ./
 INC_PATH = ./
 
 #sources and objects
-SRC_NAMES 	= main.cpp
+SRC_NAMES 	= main.cpp Contact.class.cpp
 OBJ_NAMES 	= $(SRCS:.cpp=.o)
-HDRS		= Contact.class.hpp
+HDRS		= Contact.class.hpp botin.h
 
 # PREFIXES
 SRCS = $(addprefix $(SRC_PATH),$(SRC_NAMES))
 OBJS = $(addprefix $(OBJ_PATH),$(OBJ_NAMES))
-DEPS = $(INC_PATH)/$(HDRS)
+DEPS = $(addprefix $(INC_PATH),$(HDRS))
 
 # Compile and create everything
 all: $(NAME) $(DEPS)
