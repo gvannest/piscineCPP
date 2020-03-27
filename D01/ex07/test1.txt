@@ -1,0 +1,6 @@
+Salut moi c'est Gautier
+Ceci est un test pour savoir si le programme
+replace fonctionne correctement.
+C'est un test grandeur nature donc n'ayez crainte.
+Ce test est fait pour vous, dans l'intérêt du correcteur.
+Il n'en est pas à son test d'essai!
