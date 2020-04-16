@@ -1,0 +1,1 @@
+//definition must be included in hpp file. cfmutantstack.hpp
