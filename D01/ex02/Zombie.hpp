@@ -11,7 +11,7 @@ class Zombie {
         std::string         _type;
 
     public:
-        Zombie(std::string const name, std::string const type);
+        Zombie(std::string const, std::string const);
         ~Zombie(void);
 
         void    advert(void) const;

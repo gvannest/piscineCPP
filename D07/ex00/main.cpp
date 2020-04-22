@@ -20,28 +20,22 @@ T const &   max(T const & a, T const & b){
 }
 
 
-int main(void){
-    int a = 23;
-    int b = 42;
+int main( void ) { 
+    int a = 2;
+    int b = 3;
 
-    std::cout << "Minimum between a: " << a << " and b: " << b << std::endl;
-    std::cout << min<int>(a, b) << std::endl << std::endl;
+    ::swap( a, b );
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
 
-    swap<int>(a, b);
-    std::cout << "Maximum between a: " << a << " and b: " << b << std::endl;
-    std::cout << max<int>(a, b) << std::endl << std::endl;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
 
-    float c = 36.75f;
-    float d = 36.75f;
-    std::cout << std::fixed << std::setprecision(2);
-    std::cout << "Minimum between c: " << c << " and d: " << d << std::endl;
-    std::cout << min<float>(c, d) << std::endl << std::endl;
-    d = 45.0f;
-    std::cout << "Maximum between c: " << c << " and d: " << d << std::endl;
-    std::cout << max<float>(c, d) << std::endl << std::endl;
-    swap<float>(c, d);
-    std::cout << "Minimum between c: " << c << " and d: " << d << std::endl;
-    std::cout << min<float>(c, d) << std::endl << std::endl;
-
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+    
     return 0;
 }

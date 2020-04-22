@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
 
 #include "ZombieEvent.hpp"
 #include "Zombie.hpp"
@@ -24,7 +24,7 @@ Zombie              *ZombieEvent::newZombie(std::string name) const{
 }
 
 Zombie              *ZombieEvent::randomChump(void){
-    srand (time(NULL));
+    srand(time(NULL));
     size_t rand_idx = rand() % 10;
     Zombie * zombie = this->newZombie(ZombieEvent::_list_names[rand_idx]);
     zombie->advert();

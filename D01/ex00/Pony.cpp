@@ -18,7 +18,7 @@ int             Pony::get_age(void) const{
 }
 
 std::string     Pony::make_sound(void){
-    return Pony::_sound
-;}
+    return Pony::_sound;
+}
 
 std::string const   Pony::_sound = "meuh";
