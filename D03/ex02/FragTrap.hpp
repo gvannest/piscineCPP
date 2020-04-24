@@ -10,8 +10,7 @@ class FragTrap : public ClapTrap {
         static std::string  const   _randAttacks[5];
 
     public:
-        FragTrap(std::string name = "gogo", int ep = 100, int maxEp = 100,
-                unsigned int mA = 30, unsigned int rA = 20, unsigned int aDR = 5);
+        FragTrap(std::string name = "gogo");
         FragTrap(FragTrap const & instance);
         ~FragTrap(void);
         FragTrap &  operator=(FragTrap const & rhs);

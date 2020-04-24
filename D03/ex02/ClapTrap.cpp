@@ -11,21 +11,24 @@ ClapTrap::ClapTrap(void) :  _hitPoints(0),
                             _name("default"),
                             _meleeAttackDamage(0),
                             _rangedAttackDamage(0),
-                            _armorDamageReduction(0)
+                            _armorDamageReduction(0),
+                            _msg("default")
 {
     std::cout << "ClapTrap default constructor called for " << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(int ep, int maxEp, unsigned int mA, unsigned int rA,
-                unsigned int aDR, std::string name) :   _hitPoints(100),
-                                                        _maxHitPoints(100),
-                                                        _energyPoints(ep),
-                                                        _maxEnergyPoints(maxEp),
-                                                        _level(1),
-                                                        _name(name),
-                                                        _meleeAttackDamage(mA),
-                                                        _rangedAttackDamage(rA),
-                                                        _armorDamageReduction(aDR)
+                unsigned int aDR, std::string name, std::string msg)
+:   _hitPoints(100),
+    _maxHitPoints(100),
+    _energyPoints(ep),
+    _maxEnergyPoints(maxEp),
+    _level(1),
+    _name(name),
+    _meleeAttackDamage(mA),
+    _rangedAttackDamage(rA),
+    _armorDamageReduction(aDR),
+    _msg(msg)
 {
     std::cout << "ClapTrap parameter constructor called for " << this->_name << std::endl;
 }
@@ -40,13 +43,13 @@ ClapTrap::~ClapTrap(void){
 }
 
 void        ClapTrap::rangedAttack(std::string const & target) const{
-        std::cout << "FR4G-TP " << this->_name << " launched a ranged attack, on " << 
+        std::cout << this->_msg << " " << this->_name << " launched a ranged attack, on " << 
             target << " causing " <<
             this->_rangedAttackDamage << " points in damages!" << std::endl;
 }
 
 void        ClapTrap::meleeAttack(std::string const & target) const{
-    std::cout << "FR4G-TP " << this->_name << " launched a melee attack, on " << 
+    std::cout << this->_msg << " " << this->_name << " launched a melee attack, on " << 
             target << " causing " <<
             this->_meleeAttackDamage << " points in damages!" << std::endl;
 }
@@ -56,7 +59,7 @@ void        ClapTrap::takeDamage(unsigned int amount){
     this->_hitPoints -= (amount - this->_armorDamageReduction);
     if (this->_hitPoints <= 0)
         this->_hitPoints = 0;
-    std::cout << "FR4G-TP " << this->_name << " has taken a hit with " <<
+    std::cout << this->_name << " has taken a hit with " <<
                 oldHp - this->_hitPoints << " points in damages!" << std::endl;
 }
 
@@ -66,7 +69,7 @@ void        ClapTrap::beRepaired(unsigned int amount){
     if (this->_hitPoints > this->_maxHitPoints)
         this->_hitPoints = this->_maxHitPoints;
     
-    std::cout << "FR4G-TP " << this->_name << " is getting cured, recovering " <<
+    std::cout << this->_name << " is getting cured, recovering " <<
                 this->_hitPoints - oldHp << " energy points!" << std::endl;
 }
 

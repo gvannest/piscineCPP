@@ -9,14 +9,13 @@
 class NinjaTrap : public ClapTrap {
 
     public:
-        NinjaTrap(std::string name = "Ninja", int hp = 60, int maxHp = 60, int ep = 120,
-            int maxEp = 120, unsigned int mA = 60, unsigned int rA = 5,
-            unsigned int aDR = 0);
+        NinjaTrap(std::string name = "Ninja");
 
         NinjaTrap(NinjaTrap const & instance);
         ~NinjaTrap(void);
         NinjaTrap &  operator=(NinjaTrap const & rhs);
 
+        void        ninjaShoebox(ClapTrap & clap);
         void        ninjaShoebox(FragTrap & clap);
         void        ninjaShoebox(ScavTrap & clap);
         void        ninjaShoebox(NinjaTrap & clap);

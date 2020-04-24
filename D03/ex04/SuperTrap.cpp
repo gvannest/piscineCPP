@@ -3,7 +3,8 @@
 #include <iostream>
 #include <stdlib.h>
 
-SuperTrap::SuperTrap(std::string name) : ClapTrap(100, 100, 120, 120, 60, 20, 5, name), FragTrap(name), NinjaTrap(name) {
+SuperTrap::SuperTrap(std::string name)
+: ClapTrap(100, 100, 120, 120, 60, 20, 5, name, "I'M A SUPERMAN TOUBIDOUBIDA"), FragTrap(name), NinjaTrap(name) {
     std::cout << "SuperTrap default constructor called for " << this->getName() << std::endl;
 }
 
@@ -31,3 +32,10 @@ SuperTrap &  SuperTrap::operator=(SuperTrap const & rhs){
     return *this;
 }
 
+void        SuperTrap::rangedAttack(std::string const & target) const{
+    this->FragTrap::rangedAttack(target);
+}
+
+void        SuperTrap::meleeAttack(std::string const & target) const{
+    this->NinjaTrap::meleeAttack(target);
+}

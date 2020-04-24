@@ -10,9 +10,7 @@ class ScavTrap : public ClapTrap {
         static std::string  const   _randChallenges[5];
 
     public:
-        ScavTrap(std::string name = "Door", int hp = 100, int maxHp = 100, int ep = 50,
-            int maxEp = 50, unsigned int mA = 20, unsigned int rA = 15,
-            unsigned int aDR = 3);
+        ScavTrap(std::string name = "Door");
             
         ScavTrap(ScavTrap const & instance);
         ~ScavTrap(void);

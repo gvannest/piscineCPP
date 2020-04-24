@@ -60,6 +60,10 @@ int     main(void){
     std::cout << "Door hit points : " << door.getHitPoints() << std::endl;
     tenchu.ninjaShoebox(ninja);
     std::cout << "ninja hit points : " << ninja.getHitPoints() << std::endl;
+    ClapTrap dom = ClapTrap(jim);
+    tenchu.ninjaShoebox(dom);
+    std::cout << "dom hit points : " << dom.getHitPoints() << std::endl;
+    tenchu.meleeAttack("Gogo");
 
     jim.vaulthunter_dot_exe("Tenchu");
     tenchu.takeDamage(60);

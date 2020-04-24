@@ -71,20 +71,22 @@ int     main(void){
 
     std::cout << std::endl << "--------SuperTrap-----------------" << std::endl;
     SuperTrap sprDefault;
-    SuperTrap dom = SuperTrap("Dom");
+    SuperTrap tom = SuperTrap("Tom");
 
-    std::cout << "Dom hit points : " << dom.getHitPoints() << std::endl;
-    std::cout << "Dom max hit points : " << dom.getMaxHitPoints() << std::endl;
-    std::cout << "Dom energy points : " << dom.getEnergyPoints() << std::endl;
-    std::cout << "Dom max energy points : " << dom.getMaxEnergyPoints() << std::endl;
-    std::cout << "Dom name : " << dom.getName() << std::endl;
-    std::cout << "Dom melee damage : " << dom.getMeleeDamage() << std::endl;
-    std::cout << "Dom armor reduction : " << dom.getArmorReduction() << std::endl;
+    std::cout << "Tom hit points : " << tom.getHitPoints() << std::endl;
+    std::cout << "Tom max hit points : " << tom.getMaxHitPoints() << std::endl;
+    std::cout << "Tom energy points : " << tom.getEnergyPoints() << std::endl;
+    std::cout << "Tom max energy points : " << tom.getMaxEnergyPoints() << std::endl;
+    std::cout << "Tom name : " << tom.getName() << std::endl;
+    std::cout << "Tom melee damage : " << tom.getMeleeDamage() << std::endl;
+    std::cout << "Tom armor reduction : " << tom.getArmorReduction() << std::endl;
     std::cout << "sprDefault name : " << sprDefault.getName() << std::endl;
 
-    dom.meleeAttack("Gogo");
+    tom.meleeAttack("Gogo");
     sprDefault.ninjaShoebox(bar);
     sprDefault.vaulthunter_dot_exe("Jim");
+    tom.rangedAttack("Jim");
+    tom.meleeAttack("Jim");
 
     std::cout << std::endl << "--------------------------------" << std::endl;
 

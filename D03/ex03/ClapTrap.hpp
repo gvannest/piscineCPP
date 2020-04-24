@@ -15,17 +15,19 @@ class ClapTrap {
         unsigned int _meleeAttackDamage;
         unsigned int _rangedAttackDamage;
         unsigned int _armorDamageReduction;
+        std::string                 _msg;
+
 
     public:
         ClapTrap(void);
         ClapTrap(int hp, int maxHp, int ep, int maxEp, unsigned int mA, unsigned int rA,
-                unsigned int aDR, std::string name);
+                unsigned int aDR, std::string name, std::string msg);
         ClapTrap(ClapTrap const & instance);
         ~ClapTrap(void);
         ClapTrap &  operator=(ClapTrap const & rhs);
 
-        void        rangedAttack(std::string const & target) const;
-        void        meleeAttack(std::string const & target) const;
+        void        rangedAttack(std::string const &) const;
+        void        meleeAttack(std::string const &) const;
         void        takeDamage(unsigned int amount);
         void        beRepaired(unsigned int amount);
 

@@ -22,16 +22,16 @@ int     main(void){
     gogo.vaulthunter_dot_exe("Jim");
     jim.takeDamage(30);
     std::cout << "Gogo energy points after spec attack : " << gogo.getEnergyPoints() << std::endl;
-    std::cout << "Jim hit points after repair : " << jim.getHitPoints() << std::endl;
+    std::cout << "Jim hit points : " << jim.getHitPoints() << std::endl;
 
     gogo.vaulthunter_dot_exe("Jim");
     jim.takeDamage(60);
     std::cout << "Gogo energy points after spec attack : " << gogo.getEnergyPoints() << std::endl;
-    std::cout << "Jim hit points after repair : " << jim.getHitPoints() << std::endl;
+    std::cout << "Jim hit points : " << jim.getHitPoints() << std::endl;
     
     gogo.vaulthunter_dot_exe("Jim");
     jim.takeDamage(60);
-    std::cout << "Jim hit points after repair : " << jim.getHitPoints() << std::endl;
+    std::cout << "Jim hit points : " << jim.getHitPoints() << std::endl;
     gogo.vaulthunter_dot_exe("Jim");
     gogo.vaulthunter_dot_exe("Jim");
 

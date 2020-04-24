@@ -46,6 +46,7 @@ int     main(void){
 
     bar.challengeNewcomer("Gogo");
     gogo.takeDamage(60);
+    bar.meleeAttack("Jim");
 
     return 0;
 }

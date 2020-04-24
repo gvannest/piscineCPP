@@ -11,7 +11,8 @@ std::string const     ScavTrap::_randChallenges[5] = {
     "The Voyage of Captain Chef",
 };
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(100, 100, 50, 50, 20, 15, 3, name) {
+ScavTrap::ScavTrap(std::string name)
+    : ClapTrap(100, 100, 50, 50, 20, 15, 3, name, "I WILL SCARV YOU, TRAP!") {
     std::cout << "ScavTrap default constructor called for " << this->getName() << std::endl;
 }
 

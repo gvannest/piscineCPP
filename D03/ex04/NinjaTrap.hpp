@@ -6,14 +6,16 @@
 #include "FragTrap.hpp"
 #include <string>
 
-class NinjaTrap : public virtual ClapTrap {
+class NinjaTrap : virtual public ClapTrap {
 
     public:
         NinjaTrap(std::string name = "Ninja");
+
         NinjaTrap(NinjaTrap const & instance);
         ~NinjaTrap(void);
         NinjaTrap &  operator=(NinjaTrap const & rhs);
 
+        void        ninjaShoebox(ClapTrap & clap);
         void        ninjaShoebox(FragTrap & clap);
         void        ninjaShoebox(ScavTrap & clap);
         void        ninjaShoebox(NinjaTrap & clap);

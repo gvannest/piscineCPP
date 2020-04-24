@@ -11,8 +11,8 @@ std::string const     FragTrap::_randAttacks[5] = {
     "Developer",
 };
 
-FragTrap::FragTrap(std::string name, int hp, int maxHp, int ep, int maxEp, unsigned int mA,
-                unsigned int rA, unsigned int aDR) : ClapTrap(hp, maxHp, ep, maxEp, mA, rA, aDR, name) {
+FragTrap::FragTrap(std::string name)
+: ClapTrap(100, 100, 100, 100, 30, 20, 5, name, "I WILL FRAG YOU B****!!") {
     std::cout << "FragTrap default constructor called for " << this->getName() << std::endl;
 }
 

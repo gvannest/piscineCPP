@@ -11,6 +11,7 @@ class ScavTrap : public ClapTrap {
 
     public:
         ScavTrap(std::string name = "Door");
+            
         ScavTrap(ScavTrap const & instance);
         ~ScavTrap(void);
         ScavTrap &  operator=(ScavTrap const & rhs);

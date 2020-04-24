@@ -69,7 +69,7 @@ void        FragTrap::beRepaired(unsigned int amount){
         this->_hitPoints = this->_maxHitPoints;
     
     std::cout << "FR4G-TP " << this->_name << " is getting cured, recovering " <<
-                this->_hitPoints - oldHp << " energy points!" << std::endl;
+                this->_hitPoints - oldHp << " hit points!" << std::endl;
 }
 
 FragTrap &  FragTrap::operator=(FragTrap const & rhs){
