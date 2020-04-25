@@ -16,17 +16,15 @@ Form::Form(void)
 {};
 
 Form::Form(std::string const & name, std::string const & target, int const gradeSigned, int const gradeXecute) 
-: _name(name), _target(target), _signed(false) {
-    this->_name = name;
+: _name(name), _target(target), _signed(false), _gradeSigned(gradeSigned), _gradeXecute(gradeXecute) {
     if (gradeSigned < 1 || gradeXecute < 1)
         throw Form::GradeTooHighException("Error : Grade is too high.");
     if (gradeSigned > 150 || gradeXecute > 150)
         throw Form::GradeTooLowException("Error : Grade is too low.");
-    this->_gradeSigned = gradeSigned;
-    this->_gradeXecute = gradeXecute;
 }
 
-Form::Form(Form const & src) {
+Form::Form(Form const & src)
+: _name(src.getName()), _gradeSigned(src.getGradeSigned()), _gradeXecute(src.getGradeXecute()) {
     *this = src;
 }
 
@@ -34,9 +32,8 @@ Form::~Form(void) {
 }
 
 Form &  Form::operator=(Form const & rhs){
-    this->_name = rhs.getName();
-    this->_gradeSigned = rhs.getGradeSigned();
-    this->_gradeXecute = rhs.getGradeXecute();
+    this->_signed = rhs.getStatus();
+    this->_target = rhs.getTarget();
     return *this;
 }
 

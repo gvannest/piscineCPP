@@ -10,8 +10,8 @@ class Form;
 class Bureaucrat
 {
     private:
-        std::string             _name; //cannot make it const otherwise impossible to override = operator
-        int                     _grade;
+        std::string  const           _name;
+        int                          _grade;
         Bureaucrat(void);
 
     public:

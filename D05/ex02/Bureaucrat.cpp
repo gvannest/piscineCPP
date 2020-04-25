@@ -16,19 +16,16 @@ Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name){
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException("Error: Grade is too low (must be <= 150).");
     this->_grade = grade;
-    std::cout << "Constructor called successfuly" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) {
+Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src.getName()) {
     *this = src;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-    std::cout << "Destructor called successfuly" << std::endl;
 }
 
 Bureaucrat &  Bureaucrat::operator=(Bureaucrat const & rhs){
-    this->_name = rhs.getName();
     this->_grade = rhs.getGrade();
     return *this;
 }
@@ -55,8 +52,12 @@ void            Bureaucrat::incGrade(void){
 
 void            Bureaucrat::signForm(Form & form) const{
     try {
-        form.beSigned(*this);
-        std::cout << this->_name << " signs form " << form.getName() <<std::endl;
+        if (!form.getStatus()){
+            form.beSigned(*this);
+            std::cout << this->_name << " signs form " << form.getName() <<std::endl;
+        }
+        else
+            std::cout <<  form.getName() << " form is already signed." << std::endl;
     }
     catch (Form::GradeTooLowException const & e){
         std::cout << this->_name << " can't sign form " << form.getName() <<

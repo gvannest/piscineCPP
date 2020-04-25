@@ -10,7 +10,7 @@ class Form;
 class Bureaucrat
 {
     private:
-        std::string             _name; //cannot make it const otherwise impossible to override = operator
+        std::string  const      _name;
         int                     _grade;
 
     public:
@@ -21,8 +21,8 @@ class Bureaucrat
 
         Bureaucrat &  operator=(Bureaucrat const & rhs);
 
-        std::string     getName(void) const;
-        int             getGrade(void) const;
+        std::string  const   getName(void) const;
+        int                  getGrade(void) const;
 
         void            incGrade(void); 
         void            decGrade(void);

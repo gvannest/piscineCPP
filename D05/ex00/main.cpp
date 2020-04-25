@@ -5,6 +5,7 @@ int main(){
         Bureaucrat b1 = Bureaucrat("Gautier", 27);
         std::cout << b1 << std::endl;
         b1.incGrade();
+        std::cout << b1 << std::endl;
     }
     catch (std::exception & e)
     {

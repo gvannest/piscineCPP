@@ -6,32 +6,26 @@ Form::Form(void)
 {}
 
 Form::Form(std::string const & name, int const gradeSigned, int const gradeXecute) 
-: _name(name), _signed(false) {
+: _name(name), _signed(false), _gradeSigned(gradeSigned), _gradeXecute(gradeXecute) {
     if (gradeSigned < 1 || gradeXecute < 1)
         throw Form::GradeTooHighException();
     if (gradeSigned > 150 || gradeXecute > 150)
         throw Form::GradeTooLowException();
-    this->_gradeSigned = gradeSigned;
-    this->_gradeXecute = gradeXecute;
-    std::cout << "Constructor called successfuly" << std::endl;
 }
 
-Form::Form(Form const & src) {
-    *this = src;
-}
+Form::Form(Form const & src)
+: _name(src.getName()), _signed(false), _gradeSigned(src.getGradeSigned()), _gradeXecute(src.getGradeXecute())
+{}
 
 Form::~Form(void) {
-    std::cout << "Destructor called successfuly" << std::endl;
 }
 
 Form &  Form::operator=(Form const & rhs){
-    this->_name = rhs.getName();
-    this->_gradeSigned = rhs.getGradeSigned();
-    this->_gradeXecute = rhs.getGradeXecute();
+    this->_signed = rhs.getStatus();
     return *this;
 }
 
-std::string     Form::getName(void) const{
+std::string  Form::getName(void) const{
     return this->_name;
 }
 
@@ -39,11 +33,11 @@ bool            Form::getStatus(void) const{
     return this->_signed;
 }
 
-int            Form::getGradeSigned(void) const{
+int         Form::getGradeSigned(void) const{
     return this->_gradeSigned;
 }
 
-int            Form::getGradeXecute(void) const{
+int         Form::getGradeXecute(void) const{
     return this->_gradeSigned;
 }
 

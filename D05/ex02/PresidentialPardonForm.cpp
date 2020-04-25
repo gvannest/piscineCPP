@@ -16,7 +16,6 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & sr
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {
-    std::cout << "Destructor called successfuly" << std::endl;
 }
 
 PresidentialPardonForm &  PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs){

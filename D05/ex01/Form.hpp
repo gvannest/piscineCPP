@@ -10,23 +10,23 @@
 class Form
 {
     private:
-        std::string             _name; //cannot make it const otherwise impossible to override = operator
+        std::string  const      _name; //cannot make it const otherwise impossible to override = operator
         bool                    _signed;
-        int                     _gradeSigned;
-        int                     _gradeXecute;
+        int   const             _gradeSigned;
+        int   const             _gradeXecute;
 
     public:
         Form(void);
         Form(std::string const & name, int const gradeSigned, int const gradeXecute);
         Form(Form const & src);
         ~Form(void);
-
         Form &  operator=(Form const & rhs);
 
-        std::string          getName(void) const;
-        bool                 getStatus(void) const;
-        int                  getGradeSigned(void) const;
-        int                  getGradeXecute(void) const;
+
+        std::string         getName(void) const;
+        bool                getStatus(void) const;
+        int                 getGradeSigned(void) const;
+        int                 getGradeXecute(void) const;
 
         void                 beSigned(Bureaucrat const &); 
 

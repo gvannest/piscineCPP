@@ -16,7 +16,6 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src)
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {
-    std::cout << "Destructor called successfuly" << std::endl;
 }
 
 RobotomyRequestForm &  RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs){

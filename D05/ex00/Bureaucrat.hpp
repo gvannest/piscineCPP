@@ -8,7 +8,7 @@
 class Bureaucrat
 {
     private:
-        std::string             _name; //cannot make it const otherwise impossible to override = operator
+        std::string const       _name;
         int                     _grade;
         Bureaucrat(void);
 

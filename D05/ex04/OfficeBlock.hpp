@@ -34,7 +34,7 @@ class OfficeBlock {
             public:
                 SomeoneMissingException(void){};
                 SomeoneMissingException(std::string const & message);
-                virtual ~SomeoneMissingException(void) _NOEXCEPT {};
+                virtual ~SomeoneMissingException(void) _NOEXCEPT{};
                 virtual const char * what() const throw(){
                     return _message.c_str();
                 }

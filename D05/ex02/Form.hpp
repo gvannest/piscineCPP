@@ -10,11 +10,11 @@ class Form
 {
     
     private:
-        std::string             _name; //cannot make it const otherwise impossible to override = operator
+        std::string  const      _name;
         std::string             _target;
         bool                    _signed;
-        int                     _gradeSigned;
-        int                     _gradeXecute;
+        int const               _gradeSigned;
+        int const               _gradeXecute;
 
     public:
         Form(void);

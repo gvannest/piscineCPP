@@ -17,13 +17,14 @@ int main(){
     catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
-
+    std::cout << "-----------------------" << std::endl;
     try {
         bureau.doBureaucracy("robert", "Bobby");
     }
     catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "-----------------------" << std::endl;
 
     try {
         bureau.doBureaucracy("robotomy request", "Bobby");
@@ -31,6 +32,7 @@ int main(){
     catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "-----------------------" << std::endl;
 
     try {
         bureau.doBureaucracy("presidential pardon", "Bobby");
@@ -38,6 +40,7 @@ int main(){
     catch (std::exception & e) {
         std::cout << e.what() << std::endl;
     }
+    std::cout << "-----------------------" << std::endl;
 
     Bureaucrat superman("John", 1);
     bureau.setExecutor(&superman);

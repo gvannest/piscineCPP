@@ -16,7 +16,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
-    std::cout << "Destructor called successfuly" << std::endl;
 }
 
 ShrubberyCreationForm &  ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs){
