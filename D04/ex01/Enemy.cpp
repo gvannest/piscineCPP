@@ -30,6 +30,11 @@ int                 Enemy::getHP(void) const{
     return this->_hp;
 }
 
+void                Enemy::setHP(int newHp){
+    this->_hp = newHp;
+}
+
+
 void                Enemy::takeDamage(int damage){
     if (damage > 0){
         this->_hp -= damage;

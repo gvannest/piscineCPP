@@ -20,6 +20,7 @@ MiningBarge &       MiningBarge::operator=(MiningBarge const & rhs){
     std::cout << "MiningBarge assignment operator called" << std::endl;
     if (this != &rhs){
         for (int i = 0; i < 4; i++){
+            this->_barge[i] = 0;
             if (rhs.getMiningLaser(i))
                 this->_barge[i] = rhs.getMiningLaser(i)->clone();
         }

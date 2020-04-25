@@ -15,7 +15,7 @@ Cure & Cure::operator=(Cure const & rhs){
 }
 
 Cure*    Cure::clone() const{
-    return (new Cure);
+    return (new Cure());
 }
 
 void    Cure::use(ICharacter& target){

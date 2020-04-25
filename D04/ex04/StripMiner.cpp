@@ -25,5 +25,5 @@ void            StripMiner::mine(IAsteroid* asteroid){
 }
 
 StripMiner*   StripMiner::clone(void) const{
-    return (new StripMiner(*this));
+    return (new StripMiner());
 }

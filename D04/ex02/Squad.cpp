@@ -9,6 +9,11 @@ Squad::Squad(Squad const & instance){
     int i = 0;
     while (this->_squad[i] && i < 100){
         delete this->_squad[i];
+        this->_squad[i] = 0;
+        i++;
+    }
+    i = 0;
+    while (instance.getUnit(i) && i < 100){
         this->_squad[i] = instance.getUnit(i)->clone();
         i++;
     }
@@ -53,7 +58,8 @@ int             Squad::push(ISpaceMarine* marine){
     int i = -1;
     if (marine && !_isInSquad(marine)){
         i = this->getCount();
-        this->_squad[i] = marine;
+        if (i < 100)
+            this->_squad[i] = marine;
     }
     return i;
 }

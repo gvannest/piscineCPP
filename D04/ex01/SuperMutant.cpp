@@ -9,7 +9,9 @@ SuperMutant::SuperMutant(SuperMutant const & instance) : Enemy(instance){
     std::cout << "Gaaah. Break everything!" << std::endl;
 }
 
-SuperMutant::~SuperMutant(void){}
+SuperMutant::~SuperMutant(void){
+    std::cout << "Aaargh..." << std::endl;
+}
 
 SuperMutant &   SuperMutant::operator=(SuperMutant const & rhs){
     this->Enemy::operator=(rhs);
@@ -17,13 +19,6 @@ SuperMutant &   SuperMutant::operator=(SuperMutant const & rhs){
 }
 
 void                SuperMutant::takeDamage(int damage){
-    damage -= 3;
-    if (damage > 0){
-        this->_hp -= damage;
-        if (this->_hp < 0)
-            this->_hp = 0;
-        std::cout << "SuperMutant of type " << this->_type << " has taken "
-        << damage << " points in damages!" << std::endl;
-    }
+    this->Enemy::takeDamage(damage - 3);
 }
 

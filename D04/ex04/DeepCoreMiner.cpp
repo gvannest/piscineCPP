@@ -27,5 +27,5 @@ void        DeepCoreMiner::mine(IAsteroid* asteroid){
 }
 
 DeepCoreMiner*   DeepCoreMiner::clone(void) const{
-    return (new DeepCoreMiner(*this));
+    return (new DeepCoreMiner());
 }

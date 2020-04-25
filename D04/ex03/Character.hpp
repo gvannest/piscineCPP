@@ -11,9 +11,11 @@ class Character : public ICharacter {
         std::string         _name;
         AMateria*           _inventory[4];
 
-        int                 _getLength(void) const;   
         bool                _isInInv(AMateria * materia) const;   
         Character(void);
+
+    protected:
+        int                 _getLength(void) const;   
 
     public:
         Character(std::string const & name);

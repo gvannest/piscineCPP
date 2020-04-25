@@ -7,11 +7,8 @@ class Enemy {
 
     private:
         Enemy(void);
-
-    protected:
         std::string         _type;
         int                 _hp;
-
 
     public:
         Enemy(int hp, std::string const & type);
@@ -22,6 +19,7 @@ class Enemy {
 
         std::string const   getType(void) const;
         int                 getHP(void) const;
+        void                setHP(int);
 
         virtual void        takeDamage(int damage);
 };

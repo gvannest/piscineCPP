@@ -19,12 +19,16 @@ Character::~Character(void){
 }
 
 Character & Character::operator=(Character const & rhs){
+    int i= 0;
     if (this != &rhs){
         this->_name = rhs.getName();
-        for (int i = 0; i < this->_getLength(); i++){
+        while (this->_inventory[i] && i < this->_getLength()){
             delete this->_inventory[i];
-            this->_inventory[i] = rhs._inventory[i]->clone();
+            this->_inventory[i] = 0;
+            i++;
         }
+        for (int i = 0; i < rhs._getLength(); i++)
+            this->_inventory[i] = rhs._inventory[i]->clone();
     }
     return *this;
 }
