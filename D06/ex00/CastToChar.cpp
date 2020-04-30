@@ -31,6 +31,6 @@ std::ostream &      operator<<(std::ostream & o, CastToChar const & rhs){
     else if (!std::isprint(rhs.getResult()))
         o << "non displayable";
     else
-        o << rhs.getResult();
+        o << "'" << rhs.getResult() << "'";
     return o;
 }

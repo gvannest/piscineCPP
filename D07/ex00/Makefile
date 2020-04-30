@@ -12,7 +12,7 @@ OBJ_PATH = ./objs/
 INC_PATH = ./
 
 #sources and objects
-SRC_NAMES 	= main.cpp
+SRC_NAMES 	= whatever.cpp
 OBJ_NAMES 	= $(SRCS:.cpp=.o)
 HDRS		= 
 

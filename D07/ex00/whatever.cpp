@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 
+#include "Test.class.hpp"
+
 template< typename T >
 void    swap(T & a, T & b){
     T   c;
@@ -10,12 +12,12 @@ void    swap(T & a, T & b){
 }
 
 template< typename T >
-T const &   min(T const & a, T const & b){
+T &   min(T & a, T & b){
     return (a < b ? a : b);
 }
 
 template< typename T >
-T const &   max(T const & a, T const & b){
+T &   max(T & a, T & b){
     return (a > b ? a : b);
 }
 
@@ -36,6 +38,15 @@ int main( void ) {
     std::cout << "c = " << c << ", d = " << d << std::endl;
     std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+
+    std::cout << "-------------------- " << std::endl;
+
+    Awesome x(3);
+    Awesome y(5);
+    ::swap<Awesome>(x, y);
+    std::cout << "x = " << x << ", y = " << y << std::endl;
+    std::cout << "min( x, y ) = " << ::min<Awesome>( x, y ) << std::endl;
+    std::cout << "max( x, y ) = " << ::max<Awesome>( x, y ) << std::endl;
     
     return 0;
 }

@@ -33,6 +33,8 @@ Data * deserialize(void * raw){
     data->n = *reinterpret_cast<int *>(str + 8);
     data->s2 = std::string(str + 8 + sizeof(int), 8);
 
+    delete [] reinterpret_cast<char *>(raw);
+
     return data;
 
 }
@@ -42,4 +44,5 @@ int main(void){
     std::cout << data->s1 << std::endl;
     std::cout << data->n << std::endl;
     std::cout << data->s2 << std::endl;
+    delete data;
 }
